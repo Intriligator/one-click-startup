@@ -8,11 +8,18 @@ class ApplicationController < ActionController::Base
   def require_current_user
     unless current_user
       flash.now[:warn] = "You must be logged in to perform that action"
-      redirect_to login_path
+      redirect_to home_path
     end
   end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def require_admin
+    unless current_user.admin
+      flash.now[:warn] = "You must be an admin to perform that action"
+      redirect_to home_path
+    end
   end
 end
