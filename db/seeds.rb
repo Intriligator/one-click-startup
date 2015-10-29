@@ -13,3 +13,7 @@ admin = User.create(
   password: "123",
   admin: true
 )
+
+business = Catagory.create(
+  name: "Business"
+)

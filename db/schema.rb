@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20151029180021) do
   create_table "products", force: :cascade do |t|
     t.string   "name",                        null: false
     t.text     "description",                 null: false
-    t.integer  "stock",                       null: false
+    t.integer  "stock",       default: 1,     null: false
     t.integer  "catagory_id",                 null: false
     t.integer  "user_id",                     null: false
     t.boolean  "live",        default: false, null: false

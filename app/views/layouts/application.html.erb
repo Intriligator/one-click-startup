@@ -9,7 +9,8 @@
 <body>
 <% if current_user %>
   <%= current_user.name %>
-  <%= link_to "Logout", logout_path, class: "header-link" %>
+  <%= link_to "Logout", logout_path %>
+  <%= link_to "Submit Product", new_product_path %>
 <% end %>
 <%= yield %>
 
