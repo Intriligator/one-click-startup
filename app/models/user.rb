@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :products
   has_many :messages
   has_many :bids
+  has_many :notifications
 
   has_many :conversations
   has_many :conversers, though: :conversations
