@@ -7,6 +7,8 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :catagory_id, null: false
       t.integer :user_id, null: false
       t.boolean :live, null: false, default: false
+      t.boolean :approved, null: false, default: false
+      t.datetime :expiration
 
       t.timestamps null: false
     end
