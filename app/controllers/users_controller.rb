@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def home
-    @products = Product.all
+    @products = Product.all_approved
   end
 
   private

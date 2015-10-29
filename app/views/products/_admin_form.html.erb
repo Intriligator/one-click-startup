@@ -1,0 +1,27 @@
+<%= form_for product do |f| %>
+  <div>
+    <%= f.label :name  %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :description  %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.label :catagory_id %>
+    <%= f.collection_select(:catagory_id, Catagory.all, :id, :name, prompt: true) %>
+  </div>
+
+  <div>
+    <%= f.label :approved %>
+    <%= f.check_box :approved %>
+  </div>
+
+  <div>
+    <%= f.submit "Save" %>
+  </div>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+<% end %>

@@ -8,9 +8,12 @@
 </head>
 <body>
 <% if current_user %>
-  <%= current_user.name %>
+  <%= link_to current_user.name, home_path %>
   <%= link_to "Logout", logout_path %>
   <%= link_to "Submit Product", new_product_path %>
+  <% if current_user.admin %>
+    <%= link_to "Pending Products", pending_products_path %>
+  <% end %>
 <% end %>
 <%= yield %>
 
