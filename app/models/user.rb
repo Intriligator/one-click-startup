@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :notifications
 
   has_many :conversations
-  has_many :conversers, though: :conversations
+  has_many :conversers, through: :conversations
   has_many :inverse_conversations, class_name: "Conversation", foreign_key: "converser_id"
   has_many :inverse_conversers, through: :inverse_conversations, source: :user
 end
