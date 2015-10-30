@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
   belongs_to :catagory
 
   has_many :bids
+  has_many :images
 
   def self.all_approved
     self.where(approved: true)

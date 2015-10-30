@@ -8,7 +8,13 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+
     if @product.save
+
+      #placeholder image - will erase this block
+        @image = Image.create(url: "http://www.connexionsweb.com/wp-content/uploads/2015/03/businessLogo.png", product_id: @product.id)
+      #----
+
       redirect_to home_path
     else
       flash[:warn] = "Unable to save product submission, please try again"
