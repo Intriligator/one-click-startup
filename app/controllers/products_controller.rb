@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
   end
 
   def pending
-    @products = Product.where(approved: false)
+    @products = Product.pending
   end
 
   private

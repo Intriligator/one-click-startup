@@ -11,8 +11,9 @@
   <%= link_to current_user.name, home_path %>
   <%= link_to "Logout", logout_path %>
   <%= link_to "Submit Product", new_product_path %>
+  <%= link_to "My Pending Products (#{current_user.pending_products.count})", pending_user_products_path %>
   <% if current_user.admin %>
-    <%= link_to "Pending Products", pending_products_path %>
+    <%= link_to "Pending Products (#{Product.pending.count})", pending_products_path %>
   <% end %>
 <% end %>
 <div class="flash">
