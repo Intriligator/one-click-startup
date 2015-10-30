@@ -17,10 +17,9 @@ ActiveRecord::Schema.define(version: 20151030141356) do
   enable_extension "plpgsql"
 
   create_table "bids", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "product_id", null: false
-    t.float    "price",      null: false
-    t.float    "decimal",    null: false
+    t.integer  "user_id",                            null: false
+    t.integer  "product_id",                         null: false
+    t.decimal  "price",      precision: 8, scale: 2, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
