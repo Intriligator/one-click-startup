@@ -6,9 +6,8 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :stock, null: false, default: 1
       t.integer :catagory_id, null: false
       t.integer :user_id, null: false
-      t.boolean :live, null: false, default: false
       t.boolean :approved, null: false, default: false
-      t.datetime :expiration
+      t.datetime :expiration, null: false
 
       t.timestamps null: false
     end
