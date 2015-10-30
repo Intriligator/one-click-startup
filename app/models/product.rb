@@ -8,4 +8,12 @@ class Product < ActiveRecord::Base
   def self.all_approved
     self.where(approved: true)
   end
+
+  def highest_bid
+    bids.sort_by { |bid| bid.price.to_f }.reverse.first
+  end
+
+  def highest_bid_amount
+    highest_bid ? highest_bid.price.to_f : 0
+  end
 end

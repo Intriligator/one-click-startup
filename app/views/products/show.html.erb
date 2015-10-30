@@ -1,3 +1,23 @@
-<div>
-  product show page
+<div class="product-images">
+  <% @product.images.each do |image| %>
+    <div class="product-image">
+      <%= image_tag image.url, width: 200 %>
+    </div>
+  <% end %>
+</div>
+
+<div class="product-name">
+  <%= @product.name %>
+</div>
+
+<div class="product-decription">
+  <%= @product.description %>
+</div>
+
+<div class="highest-bid">
+  <p>Highest Bid: $<%= sprintf('%.2f', @product.highest_bid_amount) %></p>
+</div>
+
+<div class="bid-link">
+  <%= link_to "Bid", new_bid_path(product_id: @product.id) %>
 </div>
