@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    assign_expiration
 
     if @product.save
 
@@ -60,5 +61,11 @@ class ProductsController < ApplicationController
 
   def product_by_id
     @product = Product.find_by(id: params[:id])
+  end
+
+  def assign_expiration
+    date = DateTime.now >> 1
+    binding.pry
+    @product.assign_attributes(expiration: date)
   end
 end

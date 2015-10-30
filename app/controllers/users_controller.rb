@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def home
-    @products = Product.all_approved
+    @products = Product.all_active
   end
 
   def pending
