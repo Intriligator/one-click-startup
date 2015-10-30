@@ -1,3 +1,19 @@
-<div>
-  product show page
+<div class="product-images">
+  <% @product.images.each do |image| %>
+    <div class="product-image">
+      <%= image_tag image.url, width: 200 %>
+    </div>
+  <% end %>
+</div>
+
+<div class="product-name">
+  <%= @product.name %>
+</div>
+
+<div class="product-decription">
+  <%= @product.description %>
+</div>
+
+<div class="bid-link">
+  <%= link_to new_bid_path %>
 </div>
