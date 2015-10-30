@@ -8,4 +8,8 @@ class Product < ActiveRecord::Base
   def self.all_approved
     self.where(approved: true)
   end
+
+  def highest_bid
+    bids.order(price: :desc).first
+  end
 end

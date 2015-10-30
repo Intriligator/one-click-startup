@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20151030141356) do
   create_table "bids", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.integer  "product_id", null: false
+    t.float    "price",      null: false
+    t.float    "decimal",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
