@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
   def pending_products
     products.where(approved: false)
   end
+
+  def all_conversations
+    conversations + inverse_conversations
+  end
 end

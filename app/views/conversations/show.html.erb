@@ -1,0 +1,5 @@
+<% @conversation.messages.each do |message| %>
+  <p>
+    <%= "#{message.user.name}: #{message.content}" %>
+  </p>
+<% end %>

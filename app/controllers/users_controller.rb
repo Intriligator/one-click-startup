@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_current_user, except: [:new, :create]
-  before_action :user_by_id, only: [:home, :show, :edit, :update, :destroy, :pending]
+  before_action :user_by_id, only: [:home, :show, :edit, :update, :destroy, :pending, :inbox]
 
   def new
     @user = User.new
@@ -35,6 +35,9 @@ class UsersController < ApplicationController
 
   def pending
     @products = current_user.pending_products
+  end
+
+  def inbox
   end
 
   private
