@@ -9,6 +9,10 @@ class Product < ActiveRecord::Base
     self.where(approved: true)
   end
 
+  def self.pending
+    self.where(approved: false)
+  end
+
   def highest_bid
     bids.sort_by { |bid| bid.price.to_f }.reverse.first
   end

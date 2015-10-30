@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :product_by_id, only: [:show, :edit, :update]
+  before_action :product_by_id, only: [:show, :edit, :update, :destroy]
   before_action :require_admin, only: [:pending]
 
   def new
@@ -38,8 +38,18 @@ class ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    if @product.delete
+      flash[:notice] = "Product Deleted"
+      redirect_to home_path
+    else
+      flash[:warn] = "Unable to delete product, please try again"
+      redirect_to :back
+    end
+  end
+
   def pending
-    @products = Product.where(approved: false)
+    @products = Product.pending
   end
 
   private

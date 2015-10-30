@@ -25,3 +25,7 @@
 
   <%= f.hidden_field :user_id, value: current_user.id %>
 <% end %>
+
+<p>
+  <%= link_to "Delete", product_path(product), method: "DELETE" %>
+</p>
