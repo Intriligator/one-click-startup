@@ -1,5 +1,6 @@
 <% @products.each do |product| %>
   <div class="product-name">
     <%= product.name %>
+    <%= link_to "Delete", product_path(product), method: "DELETE" %>
   </div>
 <% end %>
