@@ -1,0 +1,12 @@
+<%= form_for product do |f| %>
+  <div>
+    <%= f.label :price  %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div>
+    <%= f.submit "Save" %>
+  </div>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+<% end %>
