@@ -8,7 +8,8 @@ class BidsController < ApplicationController
   def create
     @bid = Bid.new(bid_params)
 
-    if @bid.save
+    if @bid.valid_bid?
+      @bid.save
       flash[:notice] = "Bid successful"
       redirect_to product_path(@bid.product)
     else

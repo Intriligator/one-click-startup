@@ -15,6 +15,10 @@
     <%= link_to "Pending Products", pending_products_path %>
   <% end %>
 <% end %>
+<div class="flash">
+  <%= flash[:notice] %>
+  <%= flash[:warn] %>
+</div>
 <%= yield %>
 
 </body>
