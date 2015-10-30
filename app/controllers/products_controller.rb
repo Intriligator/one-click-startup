@@ -65,7 +65,6 @@ class ProductsController < ApplicationController
 
   def assign_expiration
     date = DateTime.now >> 1
-    binding.pry
     @product.assign_attributes(expiration: date)
   end
 end

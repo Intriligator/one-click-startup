@@ -26,4 +26,12 @@ class User < ActiveRecord::Base
   def read_messages(conversation)
     conversation.messages.each { |message| message.now_read unless message.user == self }
   end
+
+  def read_notifications
+    notifications.update_all(read: true)
+  end
+
+  def unread_notifications
+    notifications.where(read: false)
+  end
 end

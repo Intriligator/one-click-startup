@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/pending_products' => 'products#pending'
   get '/pending_user_products' => 'users#pending'
   get '/inbox' => 'users#inbox'
+  get '/notifications' => 'users#notifications'
 
   root 'sessions#new'
 end

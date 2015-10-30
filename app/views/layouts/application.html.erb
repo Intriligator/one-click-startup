@@ -18,6 +18,7 @@
   <% else %>
     <%= link_to "My Pending Products (#{current_user.pending_products.count})", pending_user_products_path %>
   <% end %>
+  <%= link_to "Notifications(#{current_user.unread_notifications.count})", notifications_path %>
 <% end %>
 <div class="flash">
   <p><%= flash[:notice] %></p>
