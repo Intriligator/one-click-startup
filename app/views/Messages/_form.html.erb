@@ -1,0 +1,13 @@
+<%= form_for message do |f| %>
+  <div>
+    <%= f.label :content  %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div>
+    <%= f.submit "Save" %>
+  </div>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :converser_id, value: converser.id %>
+<% end %>

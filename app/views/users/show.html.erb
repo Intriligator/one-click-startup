@@ -1,1 +1,7 @@
-<%= current_user.first_name %>
+<%= @user.name %>
+
+<% unless @user == current_user %>
+  <div>
+    <%= link_to "Send Message", new_message_path(converser_id: @user.id) %>
+  </div>
+<% end %>

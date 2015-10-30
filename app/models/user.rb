@@ -18,4 +18,12 @@ class User < ActiveRecord::Base
   def pending_products
     products.where(approved: false)
   end
+
+  def all_conversations
+    conversations + inverse_conversations
+  end
+
+  def read_messages(conversation)
+    conversation.messages.each { |message| message.now_read unless message.user == self }
+  end
 end
