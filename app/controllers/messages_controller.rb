@@ -25,10 +25,12 @@ class MessagesController < ApplicationController
   end
 
   def find_conversation
-    conditions = { :user_id => params[:message][:user_id],
-                   :converser_id => params[:message][:converser_id] }
+    user_id = params[:message][:user_id]
+    converser_id = params[:message][:converser_id]
+    conditions = { :user_id => user_id,
+                   :converser_id => converser_id }
 
-    Conversation.where("user_id= ? AND converser_id= ?", params[:message][:user_id], params[:message][:converser_id]).first || Conversation.create(conditions)
+    Conversation.where("(user_id= ? AND converser_id= ?) OR (converser_id= ? AND user_id= ?)", user_id, converser_id, user_id, converser_id).first || Conversation.create(conditions)
   end
 
 end

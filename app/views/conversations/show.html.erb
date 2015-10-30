@@ -1,5 +1,10 @@
-<% @conversation.messages.each do |message| %>
+<% @conversation.messages.each_with_index do |message, index| %>
   <p>
     <%= "#{message.user.name}: #{message.content}" %>
+    <% if message.display_read(index, current_user) %>
+      (Read)
+    <% end %>
   </p>
 <% end %>
+
+<%= render partial: "message_form", locals: { message: @message, converser: @conversation.other_user(current_user) } %>
