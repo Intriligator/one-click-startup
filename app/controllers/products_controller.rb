@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :product_by_id, only: [:edit, :update]
+  before_action :product_by_id, only: [:show, :edit, :update]
   before_action :require_admin, only: [:pending]
 
   def new
@@ -14,6 +14,9 @@ class ProductsController < ApplicationController
       flash[:warn] = "Unable to save product submission, please try again"
       redirect_to :back
     end
+  end
+
+  def show
   end
 
   def edit
