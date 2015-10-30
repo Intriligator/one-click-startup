@@ -9,6 +9,7 @@ class BidsController < ApplicationController
     @bid = Bid.new(bid_params)
 
     if @bid.valid_bid?
+      send_notification
       @bid.save
       flash[:notice] = "Bid successful"
       redirect_to product_path(@bid.product)
@@ -26,5 +27,14 @@ class BidsController < ApplicationController
 
   def bid_params
     params.require(:bid).permit(:price, :user_id, :product_id)
+  end
+
+  def send_notification
+    if @bid.product.highest_bid
+      @notification = Notification.create(
+        content: "Another User has overtaken your bid on #{@bid.product.name}",
+        user_id: @bid.product.highest_bid.user.id
+      )
+    end
   end
 end
