@@ -1,4 +1,4 @@
-<% current_user.notifications.each do |notification| %>
+<% @notifications.each do |notification| %>
   <p>
     <%= notification.content %>
     <%= notification.updated_at.to_s %>

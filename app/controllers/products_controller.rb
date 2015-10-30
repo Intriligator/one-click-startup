@@ -32,6 +32,7 @@ class ProductsController < ApplicationController
   def update
     @product.assign_attributes(product_params)
     if @product.save
+      send_notification
       redirect_to home_path
     else
       flash[:warn] = "Unable to update product, please try again"
@@ -66,5 +67,12 @@ class ProductsController < ApplicationController
   def assign_expiration
     date = DateTime.now >> 1
     @product.assign_attributes(expiration: date)
+  end
+
+  def send_notification
+    notification = Notification.create(
+      user_id: @product.user.id,
+      content: "Your submission for #{@product.name} has been approved"
+    )
   end
 end

@@ -42,6 +42,7 @@ class UsersController < ApplicationController
 
   def notifications
     current_user.read_notifications
+    @notifications = current_user.notifications.order(created_at: :desc)
   end
 
   private
