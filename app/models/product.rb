@@ -5,6 +5,10 @@ class Product < ActiveRecord::Base
   has_many :bids
   has_many :images
 
+  def self.all_active
+    Product.all.select(&:active)
+  end
+
   def self.all_approved
     self.where(approved: true)
   end
@@ -19,5 +23,9 @@ class Product < ActiveRecord::Base
 
   def highest_bid_amount
     highest_bid ? highest_bid.price.to_f : 0
+  end
+
+  def active
+    approved && expiration > DateTime.now
   end
 end
