@@ -54,6 +54,10 @@ class ProductsController < ApplicationController
     @products = Product.pending
   end
 
+  def pay
+
+  end
+
   private
 
   def product_params

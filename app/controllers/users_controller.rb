@@ -45,6 +45,10 @@ class UsersController < ApplicationController
     @notifications = current_user.notifications.order(created_at: :desc)
   end
 
+  def won_products
+    @products = current_user.won_products
+  end
+
   private
 
   def user_params

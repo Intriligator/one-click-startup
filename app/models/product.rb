@@ -30,7 +30,7 @@ class Product < ActiveRecord::Base
   end
 
   def finished
-    expiration > DateTime.now
+    expiration < DateTime.now
   end
 
   def won_by
