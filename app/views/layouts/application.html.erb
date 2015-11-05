@@ -7,19 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if current_user %>
-  <%= link_to "Home", home_path %>
-  <%= link_to current_user.name, user_path(current_user) %>
-  <%= link_to "Logout", logout_path %>
-  <%= link_to "Inbox", inbox_path %>
-  <%= link_to "Submit Product", new_product_path %>
-  <% if current_user.admin %>
-    <%= link_to "All Pending Products (#{Product.pending.count})", pending_products_path %>
-  <% else %>
-    <%= link_to "My Pending Products (#{current_user.pending_products.count})", pending_user_products_path %>
-  <% end %>
-  <%= link_to "Notifications(#{current_user.unread_notifications.count})", notifications_path %>
-<% end %>
+<%= render "layouts/header" %>
 <div class="flash">
   <p><%= flash[:notice] %></p>
   <p><%= flash[:warn] %></p>
