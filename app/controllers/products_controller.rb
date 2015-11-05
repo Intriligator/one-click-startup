@@ -65,7 +65,7 @@ class ProductsController < ApplicationController
   end
 
   def assign_expiration
-    date = DateTime.now >> 1
+    date = DateTime.now + 2.minutes
     @product.assign_attributes(expiration: date)
   end
 
