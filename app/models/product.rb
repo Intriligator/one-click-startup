@@ -28,4 +28,17 @@ class Product < ActiveRecord::Base
   def active
     approved && expiration > DateTime.now
   end
+
+  def finished
+    expiration > DateTime.now
+  end
+
+  def won_by
+    return nil unless has_winner?
+    highest_bid.user
+  end
+
+  def has_winner?
+    finished && bids.count > 0
+  end
 end

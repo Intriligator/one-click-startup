@@ -34,4 +34,14 @@ class User < ActiveRecord::Base
   def unread_notifications
     notifications.where(read: false)
   end
+
+  def won_products
+    all_won_products = []
+
+    bids.each do |bid|
+      all_won_products << bid.product if bid.product.won_by == id
+    end
+
+    all_won_products
+  end
 end
