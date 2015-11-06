@@ -35,7 +35,6 @@ class ProductsController < ApplicationController
 
     if @product.save
       send_notification
-      @product.update_attribute(:expiration, DateTime.now + 1.month)
       redirect_to home_path
     else
       flash[:warn] = "Unable to update product, please try again"
