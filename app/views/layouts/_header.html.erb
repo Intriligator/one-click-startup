@@ -1,13 +1,26 @@
-<% if current_user %>
-  <%= link_to "Home", home_path %>
-  <%= link_to current_user.name, user_path(current_user) %>
-  <%= link_to "Logout", logout_path %>
-  <%= link_to "Inbox", inbox_path %>
-  <%= link_to "Submit Product", new_product_path %>
-  <% if current_user.admin %>
-    <%= link_to "All Pending Products (#{Product.pending.count})", pending_products_path %>
-  <% else %>
-    <%= link_to "My Pending Products (#{current_user.pending_products.count})", pending_user_products_path %>
-  <% end %>
-  <%= link_to "Notifications(#{current_user.unread_notifications.count})", notifications_path %>
-<% end %>
+<header>
+  <div class="head-image">
+    <div class="container">
+      <div class="row">
+        <div class="four columns">
+        <h3>One <i>Click</i> Startup</h3>
+        </div>
+        <div class="eight columns">
+          <% if current_user %>
+          <%= link_to "Home", home_path %>
+          <%= link_to current_user.name, user_path(current_user) %>
+          <%= link_to "Logout", logout_path %>
+          <%= link_to "Inbox", inbox_path %>
+          <%= link_to "Submit Product", new_product_path %>
+          <% if current_user.admin %>
+          <%= link_to "All Pending Products (#{Product.pending.count})", pending_products_path %>
+          <% else %>
+          <%= link_to "My Pending Products (#{current_user.pending_products.count})", pending_user_products_path %>
+          <% end %>
+          <%= link_to "Notifications(#{current_user.unread_notifications.count})", notifications_path %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

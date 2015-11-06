@@ -11,5 +11,7 @@
  * file per style scope.
  *= require "_normalize"
  *= require "_skeleton"
+ *= require "header"
+ *= require "main"
  *= require_self
  */
