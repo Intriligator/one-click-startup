@@ -79,6 +79,7 @@ class ProductsController < ApplicationController
 
     @product.update_attribute(:paid, true)
     redirect_to confirm_product_path
+    set_up_payment
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
@@ -107,6 +108,15 @@ class ProductsController < ApplicationController
     notification = Notification.create(
       user_id: @product.user.id,
       content: "Your submission for #{@product.name} has been approved"
+    )
+  end
+
+  def set_up_payment
+    payment = Payment.create(
+      user_id: @product.user.id,
+      buyer_id: current_user.id,
+      price: @product.highest_bid.price,
+      hold_date: DateTime.now + 2.weeks
     )
   end
 end
