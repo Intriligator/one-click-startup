@@ -1,5 +1,25 @@
-<% @products.each do |product| %>
-  <div class="product-name">
-    <%= link_to product.name, product_path(product) %>
-  </div>
-<% end %>
+<div class="lead-in text-center">
+	<h4>Start your new life with one <i>click</i></h4>
+</div>
+<div class="container">
+	<div class="row">
+	 <% @products.each do |product| %>
+	 	<%= link_to product_path(product) do %>
+		 <div class="four columns product">
+		 	  <div class="product-name text-center">
+		     <%= product.name %>
+		   </div>
+		 	<div class="product-image text-center">
+		     <%= image_tag product.images.first.url %>
+		  </div>
+		  <div class="product-desc text-center">
+		     <%= product.description %>
+		   </div>
+		  <div class="product-bid text-center">
+		     <p> Highest Bid: $<%= product.price_to_s %></p>
+		   </div>
+		  </div>
+		  <% end %>
+	 <% end %>
+	 </div>
+ </div>
