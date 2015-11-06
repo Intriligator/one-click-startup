@@ -1,1 +1,13 @@
-pay here
+<%= form_tag charge_product_path do %>
+  <article>
+    <label class="amount">
+      <span>Amount: <%= @product.highest_bid.price_to_s %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description=<%= @product.name %>
+          data-amount=<%= @product.highest_bid.price_in_cents.to_s %>
+          data-locale="auto"></script>
+<% end %>

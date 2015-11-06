@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :product_by_id, only: [:show, :edit, :update, :destroy]
+  before_action :product_by_id, only: [:show, :edit, :update, :destroy, :pay, :charge, :confirm]
   before_action :require_admin, only: [:pending]
 
   def new
@@ -57,6 +57,32 @@ class ProductsController < ApplicationController
 
   def pay
 
+  end
+
+  def charge
+    # Amount in cents
+    @amount = @product.highest_bid.price_in_cents
+
+    customer = Stripe::Customer.create(
+      :email => params[:stripeEmail],
+      :card  => params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
+      :customer    => customer.id,
+      :amount      => @amount,
+      :description => 'Rails Stripe customer',
+      :currency    => 'usd'
+    )
+
+    redirect_to confirm_product_path
+
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to charge_product_path(@product)
+  end
+
+  def confirm
   end
 
   private

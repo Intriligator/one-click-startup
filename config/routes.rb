@@ -4,13 +4,14 @@ Rails.application.routes.draw do
   resources :products, only: [:new, :create, :edit, :update, :show, :destroy] do
     member do
       get 'pay'
+      post 'charge'
+      get 'confirm'
     end
   end
 
   resources :bids, only: [:new, :create]
   resources :conversations, only: [:show]
   resources :messages, only: [:new, :create]
-  resources :charges
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
