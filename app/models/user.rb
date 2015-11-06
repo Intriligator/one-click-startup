@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
     all_won_products = []
 
     bids.each do |bid|
-      all_won_products << bid.product if bid.product.won_by == self && !bid.product.paid
+      all_won_products << bid.product if bid.product.winning_bid == bid && !bid.product.paid
     end
 
     all_won_products
