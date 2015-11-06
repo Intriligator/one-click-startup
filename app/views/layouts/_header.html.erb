@@ -9,8 +9,6 @@
           <div class="nav-user">
           <% if current_user %>
           <%= link_to "Home", home_path %>
-          <%= link_to current_user.name, user_path(current_user) %>
-          <%= link_to "Logout", logout_path %>
           <%= link_to "Inbox", inbox_path %>
           <%= link_to "Submit Product", new_product_path %>
           <% if current_user.admin %>
@@ -29,6 +27,11 @@
             <%= current_user.unread_notifications.count %>
           </div>
           <% end %>
+          <%= link_to current_user.name, user_path(current_user) %>
+          <%= link_to "Logout", logout_path %>
+          <% else %>
+          <%= link_to "Log In", login_path %> or
+          <%= link_to "Sign Up Today", new_user_path %>
           <% end %>
           </div>
         </div>
