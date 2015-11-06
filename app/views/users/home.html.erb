@@ -12,8 +12,11 @@
 		 	<div class="product-image text-center">
 		     <%= image_tag product.images.first.url %>
 		  </div>
-		  <div class="product-bid text-center">
+		  <div class="product-desc text-center">
 		     <%= product.description %>
+		   </div>
+		  <div class="product-bid text-center">
+		     <p> Highest Bid: $<%= product.price_to_s %></p>
 		   </div>
 		  </div>
 		  <% end %>
