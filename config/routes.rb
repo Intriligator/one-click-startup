@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :products, only: [:new, :create, :edit, :update, :show, :destroy] do
     member do
       get 'pay'
+      post 'charge'
+      get 'confirm'
     end
   end
 

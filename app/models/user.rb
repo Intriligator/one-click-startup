@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
   has_many :inverse_conversations, class_name: "Conversation", foreign_key: "converser_id"
   has_many :inverse_conversers, through: :inverse_conversations, source: :user
 
+  has_many :payments
+  has_many :buyers, through: :payments
+  has_many :inverse_payments, class_name: "Payment", foreign_key: "buyer_id"
+  has_many :inverse_buyers, through: :inverse_payments, source: :user
+
   def name
     "#{first_name} #{last_name}"
   end
@@ -39,7 +44,7 @@ class User < ActiveRecord::Base
     all_won_products = []
 
     bids.each do |bid|
-      all_won_products << bid.product if bid.product.won_by == self
+      all_won_products << bid.product if bid.product.won_by == self && !bid.product.paid
     end
 
     all_won_products
