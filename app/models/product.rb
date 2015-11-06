@@ -46,4 +46,9 @@ class Product < ActiveRecord::Base
   def has_winner?
     finished && bids.count > 0
   end
+
+  def price_to_s
+    return "0.00" unless bids.count > 0
+    highest_bid.price_to_s
+  end
 end
