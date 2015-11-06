@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    assign_expiration
+    @product.assign_attributes(expiration: DateTime.now)
 
     if @product.save
 
@@ -31,6 +31,8 @@ class ProductsController < ApplicationController
 
   def update
     @product.assign_attributes(product_params)
+    assign_expiration
+
     if @product.save
       send_notification
       @product.update_attribute(:expiration, DateTime.now + 1.month)
@@ -75,6 +77,7 @@ class ProductsController < ApplicationController
       :currency    => 'usd'
     )
 
+    @product.update_attribute(:paid, true)
     redirect_to confirm_product_path
 
   rescue Stripe::CardError => e
@@ -96,7 +99,7 @@ class ProductsController < ApplicationController
   end
 
   def assign_expiration
-    date = DateTime.now + 2.minutes
+    date = DateTime.now + 1.minutes
     @product.assign_attributes(expiration: date)
   end
 

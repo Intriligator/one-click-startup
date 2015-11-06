@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20151030141356) do
     t.integer  "catagory_id",                 null: false
     t.integer  "user_id",                     null: false
     t.boolean  "approved",    default: false, null: false
+    t.boolean  "paid",        default: false, null: false
     t.datetime "expiration",                  null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
