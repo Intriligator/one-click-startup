@@ -21,6 +21,11 @@ class Product < ActiveRecord::Base
     bids.sort_by { |bid| bid.price.to_f }.reverse.first
   end
 
+  def winning_bid
+    return nil unless finished
+    highest_bid
+  end
+
   def highest_bid_amount
     highest_bid ? highest_bid.price.to_f : 0
   end
