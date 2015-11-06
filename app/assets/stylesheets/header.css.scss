@@ -9,11 +9,23 @@
 .nav-user {
 	text-align:right;
 	padding-top:1.5rem;
+	font-size: 1.2rem;
 	a {
 		color:#fff;
 		text-decoration: none;
 		padding-left:1rem;
+		&:hover{
+			color:#ddd;
+		}
 	}
+}
+.notification-number{
+	border-radius:100%;
+	background:#ED1C24;
+	text-align:center;
+	display:inline-block;
+	width: 1.9rem;
+	height: 1.9rem;
 }
 .header-tagline {
 	margin-top:15rem;

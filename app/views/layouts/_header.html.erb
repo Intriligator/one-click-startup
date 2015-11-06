@@ -14,11 +14,21 @@
           <%= link_to "Inbox", inbox_path %>
           <%= link_to "Submit Product", new_product_path %>
           <% if current_user.admin %>
-          <%= link_to "All Pending Products (#{Product.pending.count})", pending_products_path %>
-          <% else %>
-          <%= link_to "Pending (#{current_user.pending_products.count})", pending_user_products_path %>
+          <%= link_to "All Pending Products", pending_products_path %>
+          <% if Product.pending.count > 0 %>
+          <div class="notification-number">
+            <%= Product.pending.count %>
+          </div>
           <% end %>
-          <%= link_to "Notifications(#{current_user.unread_notifications.count})", notifications_path %>
+          <% else %>
+          <%= link_to "Pending", pending_user_products_path %>
+          <% end %>
+          <%= link_to "Notifications", notifications_path %>
+          <% if current_user.unread_notifications.count > 0 %>
+          <div class="notification-number">
+            <%= current_user.unread_notifications.count %>
+          </div>
+          <% end %>
           <% end %>
           </div>
         </div>
