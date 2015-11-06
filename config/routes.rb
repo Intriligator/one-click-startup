@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :bids, only: [:new, :create]
   resources :conversations, only: [:show]
   resources :messages, only: [:new, :create]
+  resources :charges
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
