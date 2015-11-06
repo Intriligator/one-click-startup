@@ -1,13 +1,48 @@
-<% if current_user %>
-  <%= link_to "Home", home_path %>
-  <%= link_to current_user.name, user_path(current_user) %>
-  <%= link_to "Logout", logout_path %>
-  <%= link_to "Inbox", inbox_path %>
-  <%= link_to "Submit Product", new_product_path %>
-  <% if current_user.admin %>
-    <%= link_to "All Pending Products (#{Product.pending.count})", pending_products_path %>
-  <% else %>
-    <%= link_to "My Pending Products (#{current_user.pending_products.count})", pending_user_products_path %>
-  <% end %>
-  <%= link_to "Notifications(#{current_user.unread_notifications.count})", notifications_path %>
-<% end %>
+<header>
+  <div class="head-contain">
+    <div class="container">
+      <div class="row">
+        <div class="four columns">
+        <h3>One <i>Click</i> Startup</h3>
+        </div>
+        <div class="eight columns">
+          <div class="nav-user">
+          <% if current_user %>
+          <%= link_to "Home", home_path %>
+          <%= link_to "Inbox", inbox_path %>
+          <%= link_to "Submit Product", new_product_path %>
+          <% if current_user.admin %>
+          <%= link_to "All Pending Products", pending_products_path %>
+          <% if Product.pending.count > 0 %>
+          <div class="notification-number">
+            <%= Product.pending.count %>
+          </div>
+          <% end %>
+          <% else %>
+          <%= link_to "Pending", pending_user_products_path %>
+          <% end %>
+          <%= link_to "Notifications", notifications_path %>
+          <% if current_user.unread_notifications.count > 0 %>
+          <div class="notification-number">
+            <%= current_user.unread_notifications.count %>
+          </div>
+          <% end %>
+          <%= link_to current_user.name, user_path(current_user) %>
+          <%= link_to "Logout", logout_path %>
+          <% else %>
+          <%= link_to "Log In", login_path %> or
+          <%= link_to "Sign Up Today", new_user_path %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="header-tagline twelve columns text-center">
+            <h1>Bringing Great Ideas to Light</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
