@@ -1,20 +1,12 @@
-<div class="head-contain">
-	<div class="container">
-  	<div class="row">
-    	<div class="header-tagline twelve columns text-center">
-      	<h1>Bringing Great Ideas to Light</h1>
-    	</div>
-  	</div>
-	</div>
-</div>
 <div class="lead-in text-center">
 	<h4>Start your new life with one <i>click</i></h4>
 </div>
 <div class="container">
 	<div class="row">
 	 <% @products.each do |product| %>
-	 	<%= link_to product_path(product) do %>
+
 		 <div class="four columns product">
+		 	 	<%= link_to product_path(product) do %>
 		 	  <div class="product-name text-center">
 		     <%= product.name %>
 		   </div>
@@ -27,8 +19,8 @@
 		  <div class="product-bid text-center">
 		     <p> Highest Bid: $<%= product.price_to_s %></p>
 		   </div>
+		    		  <% end %>
 		  </div>
-		  <% end %>
 	 <% end %>
 	 </div>
  </div>
