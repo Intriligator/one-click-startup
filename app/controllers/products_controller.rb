@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    create_view
   end
 
   def edit
@@ -118,4 +119,15 @@ class ProductsController < ApplicationController
       hold_date: DateTime.now + 2.weeks
     )
   end
+
+  def create_view
+    unless @product.user == current_user
+      current_user ? current_user_id = current_user.id : current_user_id = nil
+      View.create(
+        user_id: current_user_id,
+        product_id: @product.id
+      )
+    end
+  end
+
 end

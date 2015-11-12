@@ -6,6 +6,7 @@ class Product < ActiveRecord::Base
 
   has_many :bids
   has_many :images
+  has_many :views
 
   def self.all_active
     Product.all.select(&:active)
