@@ -9,11 +9,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render "layouts/header" %>
-<!-- <div class="flash">
-  <p><%= flash[:notice] %></p>
-  <p><%= flash[:warn] %></p>
-</div> -->
+  <%= render "layouts/header" %>
+
+  <div class="flash">
+    <%= flash[:notice] %>
+    <%= flash[:warn] %>
+  </div>
   <% if pad_top %>
     <div class="content-container-pad">
       <%= yield %>
@@ -21,6 +22,5 @@
   <% else %>
     <%= yield %>
   <% end %>
-
 </body>
 </html>

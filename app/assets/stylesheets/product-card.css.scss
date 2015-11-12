@@ -1,0 +1,51 @@
+.product-card {
+	border-radius: 2px;
+    background: #fff;
+    box-shadow: 0 1px 3px #C7C7C7;
+    overflow: hidden;
+    position: relative;
+    a{
+        text-decoration: none;
+    }
+}
+  
+.product-title-container {
+    width:100%;
+    overflow: hidden;
+    display: table;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    text-align: center;
+}
+
+.product-details {
+    padding: 1rem;
+}
+.product-title {
+    margin-bottom:0;
+    font-size: 1.8rem;
+}
+.product-user {
+ margin-bottom: 0;
+ a {
+    text-decoration: none;
+ }
+}
+.product-tagline {
+    margin-bottom: 2.5rem;
+}
+.info {
+    border-top: 1px solid #ddd;
+    padding-top: 1.5rem;
+    margin-bottom: 0;
+    font-size: 80%;
+
+    span {
+        float: right;
+        i {
+            padding-left: 1.5rem;
+            color: #222;
+
+        }
+    }
+}

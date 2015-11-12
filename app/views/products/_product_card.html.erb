@@ -1,0 +1,25 @@
+<% @products.each do |product| %>
+<div class="four columns">
+      <div class="product-card">
+        <%= link_to product_path(product) do %>
+          <div class="product-title-container"> 
+            <div class="product-title">
+              <%= image_tag product.images.first.url %>
+            </div>
+          </div>
+        <% end %>
+        <div class="product-details">   
+          <p class="product-title">Lit Upside Down</p>         
+          <p class="product-user"><a href="">Jerry Patterson (cpa)</a></p>
+          <p class="product-tagline">Light it up the skies today</p>
+          <p class="info">1h ago, 1,000 views<span class="social">
+            <a href=""><i class="fa fa-heart"></i></a>
+            <a href=""><i class="fa fa-download"></i></a>
+            <a href=""><i class="fa fa-share"></i></a>
+          </span></p>
+        </div>
+      </div><!--product-card-->
+    </div><!--column-->
+  <% end %>
+
+

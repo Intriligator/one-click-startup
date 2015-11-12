@@ -8,28 +8,47 @@
   </div>
 </div>
 <div class="lead-in text-center">
-	<h4>Start your new life with one <i>click</i></h4>
+	<h4>Start your new business with one <i>click</i></h4>
 </div>
+<section class="how-it-works">
+  <div class="container">
+    <div class="row">
+      <div class="four columns text-center">
+      <h5>Browse Businesses</h5>
+      <p><i class="fa fa-black-tie fa-5x"></i></p>
+      <p>Many people have skills  but lack resources to get started...while many people have resources and ideas but lack the time needed to develop their ideast to there full potential.</p>
+      </div>
+      <div class="four columns text-center">
+      <h5>Discover Great Opportunities</h5>
+      <p><i class="fa fa-bookmark fa-5x"></i></p>
+      <p>We have curated a full range of branded business ideas ready to go. <br>Our goal is to match the right idea with the right action. </p>
+      </div>
+      <div class="four columns text-center">
+      <h5>Connect and Purchase</h5>
+      <p><i class="fa fa-trademark fa-5x"></i></p>
+      <p>Great ideas have great value. <br>View our listings and message our sponsors for more info, bid to win and start to develop the next big idea.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns text-center">
+      <p>&nbsp;</p>
+        <p><a href="sponsor.html">Learn more</a> about becoming a sponsor and presenting your idea to the One Click panel</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+   <div class="row">
+     <div class="twelve-columns text-center">
+       <p class="lead">The panel's top picks</p class="lead">
+       <p>Curated for inspiration</p>
+     </div>
+   </div>
+  </div>
+</section>
 <div class="container">
 	<div class="row">
-	 <% @products.each do |product| %>
-
-		 <div class="four columns product">
-		 	 	<%= link_to product_path(product) do %>
-		 	  <div class="product-name text-center">
-		     <%= product.name %>
-		   </div>
-		 	<div class="product-image text-center">
-		     <%= image_tag product.images.first.url %>
-		  </div>
-		  <div class="product-desc text-center">
-		     <%= product.description %>
-		   </div>
-		  <div class="product-bid text-center">
-		     <p> Highest Bid: $<%= product.price_to_s %></p>
-		   </div>
-		    		  <% end %>
-		  </div>
-	 <% end %>
+		<%= render "products/product_card" %>
 	 </div>
  </div>
