@@ -4,13 +4,16 @@ header.nav-landing {
 	color:#fff;
 	z-index:1000;
 	text-shadow: 0px 1px 5px #444;
+	a:hover{
+		color:#ddd;
+	}
 }
 header.nav-page {
 	background: #ddd;
 	a {
 		color: #000;
 		&:hover{
-			color:rgba (#000, .8);
+			opacity:.5;
 		}
 	}
 	h3 {
@@ -32,16 +35,13 @@ header.nav-page {
 
 .nav-user {
 	text-align:right;
-	padding-top:1.8rem;
-	font-size: 1.2rem;
+	padding-top:1.5rem;
+	font-size: 1.5rem;
 	a {
 		color:#fff;
 		text-decoration: none;
 		padding-left:.5rem;
 		padding-right:.5rem;
-		&:hover{
-			color:#ddd;
-		}
 	}
 }
 .notification-number{
