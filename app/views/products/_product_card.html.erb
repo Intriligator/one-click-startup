@@ -3,9 +3,7 @@
       <div class="product-card">
         <%= link_to product_path(product) do %>
           <div class="product-title-container"> 
-            <div class="product-title">
               <%= image_tag product.images.first.url %>
-            </div>
           </div>
         <% end %>
         <div class="product-details">   
@@ -14,7 +12,7 @@
           <p class="product-user">Posted by: <%= link_to product.user.name, user_path(product.user) %></p>
           <p class="info"><%= product.expiration_to_s %>, 1,000 views<span class="social">
             <a href=""><i class="fa fa-heart"></i></a>
-            <a href=""><i class="fa fa-download"></i></a>
+            <%= link_to new_bid_path(product_id: product.id) do %><i class="fa fa-usd"></i><% end %>
             <a href=""><i class="fa fa-share"></i></a>
           </span></p>
         </div>
