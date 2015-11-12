@@ -1,7 +1,7 @@
 module ApplicationHelper
-  def render_image
+  def pad_top
     image_urls = [home_path, root_path]
-    image_urls.each { |url| return true if request.fullpath == url }
-    return false
+    image_urls.each { |url| return false if request.fullpath == url }
+    return true
   end
 end

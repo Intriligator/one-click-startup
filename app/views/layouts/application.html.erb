@@ -13,7 +13,13 @@
   <p><%= flash[:notice] %></p>
   <p><%= flash[:warn] %></p>
 </div> -->
-<%= yield %>
+  <% if pad_top %>
+    <div class="content-container-pad">
+      <%= yield %>
+    </div>
+  <% else %>
+    <%= yield %>
+  <% end %>
 
 </body>
 </html>
