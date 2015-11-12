@@ -10,7 +10,7 @@
           <p class="product-title"><b><%= product.name %></b></p>         
           <p class="product-tagline"><%= product.tagline %></p>
           <p class="product-user">Posted by: <%= link_to product.user.name, user_path(product.user) %></p>
-          <p class="info"><%= product.expiration_to_s %>, 1,000 views<span class="social">
+          <p class="info"><%= product.expiration_to_s %> - Views: <%= product.views.count %><span class="social">
             <a href=""><i class="fa fa-heart"></i></a>
             <%= link_to new_bid_path(product_id: product.id) do %><i class="fa fa-usd"></i><% end %>
             <a href=""><i class="fa fa-share"></i></a>
