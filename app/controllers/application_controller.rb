@@ -22,4 +22,7 @@ class ApplicationController < ActionController::Base
       redirect_to home_path
     end
   end
+
+  def terms
+  end
 end

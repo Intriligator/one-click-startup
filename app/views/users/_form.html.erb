@@ -17,6 +17,6 @@
 
   <div>
     <%= f.submit "Save" %>
-    <p><small>By hitting submit you are agreeing to our <a href="#">terms and services</a></small></p>
+    <p><small>By hitting submit you are agreeing to our <%= link_to "terms and services", terms_path  %></small></p>
   </div>
 <% end %>

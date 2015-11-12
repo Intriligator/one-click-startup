@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/inbox' => 'users#inbox'
   get '/notifications' => 'users#notifications'
   get '/won_products' => 'users#won_products'
+  get '/terms' => 'application#terms'
 
   root 'sessions#new'
 end
