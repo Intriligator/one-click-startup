@@ -15,5 +15,7 @@
  *= require "header"
  *= require "main"
  *= require "login-signup"
+ *= require "product-card"
+ *= require "footer"
  *= require_self
  */
