@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :bids
   has_many :notifications
+  has_many :views
 
   has_many :conversations
   has_many :conversers, through: :conversations
