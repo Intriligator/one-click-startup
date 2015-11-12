@@ -2,16 +2,16 @@
 <div class="four columns repeater">
       <div class="product-card">
         <%= link_to product_path(product) do %>
-          <div class="product-title-container"> 
+          <div class="product-title-container">
               <%= image_tag product.images.first.url %>
           </div>
         <% end %>
-        <div class="product-details">   
-          <p class="product-title"><b><%= product.name %></b></p>         
+        <div class="product-details">
+          <p class="product-title"><b><%= product.name %></b></p>
           <p class="product-tagline"><%= product.tagline %></p>
           <p class="product-user">Posted by: <%= link_to product.user.name, user_path(product.user) %></p>
           <p class="info"><%= product.expiration_to_s %> - Views: <%= product.views.count %><span class="social">
-            <a href=""><i class="fa fa-heart"></i></a>
+            <%= link_to likes_path(product_id: product.id), method: "POST" do %><i class="fa fa-heart"></i><% end %>
             <%= link_to new_bid_path(product_id: product.id) do %><i class="fa fa-usd"></i><% end %>
             <a href=""><i class="fa fa-share"></i></a>
           </span></p>
