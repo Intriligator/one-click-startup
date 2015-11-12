@@ -9,6 +9,7 @@ class Product < ActiveRecord::Base
   has_many :views
   has_many :assets
   has_many :socials
+  has_many :likes
 
   def self.all_active
     Product.all.select(&:active)
