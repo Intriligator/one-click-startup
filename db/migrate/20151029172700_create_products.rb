@@ -2,6 +2,7 @@ class CreateProducts < ActiveRecord::Migration
   def change
     create_table :products do |t|
       t.string  :name, null: false
+      t.string  :tagline, null: false, limit: 60
       t.text    :description, null: false
       t.integer :stock, null: false, default: 1
       t.integer :catagory_id, null: false
