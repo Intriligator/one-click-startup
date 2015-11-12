@@ -9,10 +9,10 @@
           </div>
         <% end %>
         <div class="product-details">   
-          <p class="product-title">Lit Upside Down</p>         
-          <p class="product-user"><a href="">Jerry Patterson (cpa)</a></p>
+          <p class="product-title"><%= product.name %></p>         
+          <p class="product-user"><%= link_to product.user.name, user_path(product.user) %></p>
           <p class="product-tagline">Light it up the skies today</p>
-          <p class="info">1h ago, 1,000 views<span class="social">
+          <p class="info">, 1,000 views<span class="social">
             <a href=""><i class="fa fa-heart"></i></a>
             <a href=""><i class="fa fa-download"></i></a>
             <a href=""><i class="fa fa-share"></i></a>

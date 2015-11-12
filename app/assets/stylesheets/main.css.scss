@@ -1,9 +1,12 @@
- body {
+ .how-it-works {
+  border-top: 1px solid #ddd;
+ }
+ .how-it-works {
   background: #f5f5f5;
- }
- .lead-in {
-  border-bottom: 1px solid #ddd;
- }
+}
+section {
+  padding: 2rem;
+}
 
  .content-container-pad {
   position: relative;
