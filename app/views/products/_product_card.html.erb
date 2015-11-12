@@ -12,7 +12,7 @@
           <p class="product-title"><%= product.name %></p>         
           <p class="product-user"><%= link_to product.user.name, user_path(product.user) %></p>
           <p class="product-tagline">Light it up the skies today</p>
-          <p class="info">, 1,000 views<span class="social">
+          <p class="info"><%= product.expiration_to_s %>, 1,000 views<span class="social">
             <a href=""><i class="fa fa-heart"></i></a>
             <a href=""><i class="fa fa-download"></i></a>
             <a href=""><i class="fa fa-share"></i></a>
