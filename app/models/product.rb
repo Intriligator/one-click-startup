@@ -51,4 +51,9 @@ class Product < ActiveRecord::Base
     return "0.00" unless bids.count > 0
     highest_bid.price_to_s
   end
+
+  def expiration_to_s
+    return "Expired" if finished
+    "Expires in #{distance_of_time_in_words(DateTime.now, expiration)}"
+  end
 end
