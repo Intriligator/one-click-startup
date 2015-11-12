@@ -19,14 +19,11 @@ class ProductsController < ApplicationController
         params[:product][:file].each do |file|
           obj = S3_BUCKET.object(file.original_filename)
 
-          obj.write(
-            file: file,
-            acl: :public_read
-          )
+          obj.upload_file(file.tempfile, acl:'public-read')
 
           @image = Image.new(url: obj.public_url, product_id: @product.id)
 
-          unless image.save
+          unless @image.save
             flash[:warn] = "There was a problem uploading your image(s), please try again"
             redirect_to :back
           end
