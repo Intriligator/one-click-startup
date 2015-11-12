@@ -59,6 +59,7 @@ GEM
     debug_inspector (0.0.2)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
+    envyable (0.2.0)
     erubis (2.7.0)
     execjs (2.6.0)
     globalid (0.3.6)
@@ -175,6 +176,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   coffee-rails (~> 4.1.0)
+  envyable
   jbuilder (~> 2.0)
   jquery-rails
   pg
