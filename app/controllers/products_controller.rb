@@ -11,10 +11,27 @@ class ProductsController < ApplicationController
     @product.assign_attributes(expiration: DateTime.now)
 
     if @product.save
+      unless params[:product][:file]
+        #placeholder image - will erase this block
+          @image = Image.create(url: "http://www.connexionsweb.com/wp-content/uploads/2015/03/businessLogo.png", product_id: @product.id)
+        #----
+      else
+        params[:product][:file].each do |file|
+          obj = S3_BUCKET.object(file.original_filename)
 
-      #placeholder image - will erase this block
-        @image = Image.create(url: "http://www.connexionsweb.com/wp-content/uploads/2015/03/businessLogo.png", product_id: @product.id)
-      #----
+          obj.write(
+            file: file,
+            acl: :public_read
+          )
+
+          @image = Image.new(url: obj.public_url, product_id: @product.id)
+
+          unless image.save
+            flash[:warn] = "There was a problem uploading your image(s), please try again"
+            redirect_to :back
+          end
+        end
+      end
 
       redirect_to home_path
     else
