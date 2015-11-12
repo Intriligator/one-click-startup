@@ -71,16 +71,17 @@ ActiveRecord::Schema.define(version: 20151106202145) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",                        null: false
-    t.text     "description",                 null: false
-    t.integer  "stock",       default: 1,     null: false
-    t.integer  "catagory_id",                 null: false
-    t.integer  "user_id",                     null: false
-    t.boolean  "approved",    default: false, null: false
-    t.boolean  "paid",        default: false, null: false
-    t.datetime "expiration",                  null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "name",                                   null: false
+    t.string   "tagline",     limit: 60,                 null: false
+    t.text     "description",                            null: false
+    t.integer  "stock",                  default: 1,     null: false
+    t.integer  "catagory_id",                            null: false
+    t.integer  "user_id",                                null: false
+    t.boolean  "approved",               default: false, null: false
+    t.boolean  "paid",                   default: false, null: false
+    t.datetime "expiration",                             null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "users", force: :cascade do |t|
