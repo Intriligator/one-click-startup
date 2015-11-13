@@ -46,10 +46,11 @@ ActiveRecord::Schema.define(version: 20151113162509) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.string   "url",        null: false
-    t.integer  "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "url",            null: false
+    t.integer  "imageable_id",   null: false
+    t.string   "imageable_type", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "likes", force: :cascade do |t|

@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   belongs_to :catagory
 
   has_many :bids
-  has_many :images
+  has_many :images, as: :imageable
   has_many :views
   has_many :assets
   has_many :socials
