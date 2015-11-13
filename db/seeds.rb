@@ -35,18 +35,18 @@ emails.each do |email|
     password: "123",
     admin: false,
     location: "Everywhere",
-    occupation: Faker::Company.profession,
+    occupation: "Astronaut",
     bio: Faker::Hacker.say_something_smart
   )
 end
 
-5.times do |x|
+8.times do |x|
   product = Product.create(
     name: Faker::Company.name,
-    tagline: Faker::Company.catch_phrase,
-    mission: Faker::Company.catch_phrase,
-    website: "http://www.google.com",
-    value_prop: Faker::Company.buzzword,
+    tagline: "Stop being the worst, buy this now",
+    mission: "A venture guarenteed to make you less terrible",
+    website: Faker::Internet.url,
+    value_prop: "Buy this to cease being irrelevent",
     description: "This is a description",
     catagory_id: business.id,
     user_id: rand(1..User.all.count),
@@ -56,7 +56,7 @@ end
   )
 
   image = Image.create(
-    url: "http://www.connexionsweb.com/wp-content/uploads/2015/03/businessLogo.png",
+    url: Faker::Company.logo,
     product_id: product.id
   )
 end
