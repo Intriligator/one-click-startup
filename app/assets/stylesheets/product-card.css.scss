@@ -47,12 +47,15 @@
     span.social {
         float: right;
         i {
-            padding-left: 1.5rem;
-            color: #222;
+            padding-left:1rem;
+            color: #F05037;
         }
 
     }
-    span.green a{
+    span.green i{
             color: #39B54A;
         }
+    i {
+        font-size: 1.8rem;
+    }
 }
