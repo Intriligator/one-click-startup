@@ -11,7 +11,11 @@
           <p class="product-tagline"><%= product.tagline %></p>
           <p class="product-user">Posted by: <%= link_to product.user.name, user_path(product.user) %></p>
           <p class="info"><%= product.expiration_to_s %> - Views: <%= product.views.count %><span class="social">
-            <%= link_to likes_path(product_id: product.id), method: "POST" do %><i class="fa fa-heart"></i><% end %>
+            <% if product.liked_by?(current_user) %>
+              <%= link_to likes_path(product_id: product.id), method: "POST" do %><i class="fa fa-heart"></i><% end %>
+            <% else %>
+              <%= link_to like_path(product.liked_by?(current_user)), method: "DELETE" do %><i class="fa fa-heart"></i><% end %>
+            <% end %>
             <%= link_to new_bid_path(product_id: product.id) do %><i class="fa fa-usd"></i><% end %>
             <a href=""><i class="fa fa-share"></i></a>
           </span></p>
