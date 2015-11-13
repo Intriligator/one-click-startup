@@ -8,6 +8,7 @@ class Product < ActiveRecord::Base
   has_many :images
   has_many :views
   has_many :assets
+  has_many :socials
 
   def self.all_active
     Product.all.select(&:active)
