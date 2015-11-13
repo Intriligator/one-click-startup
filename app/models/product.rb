@@ -66,4 +66,8 @@ class Product < ActiveRecord::Base
   def time_created_ago
     "Submitted #{distance_of_time_in_words(created_at, DateTime.now)}"
   end
+
+  def liked_by?(user)
+    likes.find_by(user: user)
+  end
 end

@@ -8,4 +8,9 @@ class LikesController < ApplicationController
     flash[:warn] = "Unable to save like, please try again" unless @like.save
     redirect_to :back
   end
+
+  def destroy
+    @like = Like.find_by(id: params[:id])
+    @like.destroy
+  end
 end
