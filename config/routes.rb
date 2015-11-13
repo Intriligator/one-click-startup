@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :bids, only: [:new, :create]
   resources :conversations, only: [:show]
   resources :messages, only: [:new, :create]
-  resources :likes, only: [:create. :destroy]
+  resources :likes, only: [:create, :destroy]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
