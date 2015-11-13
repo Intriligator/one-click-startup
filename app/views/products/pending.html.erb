@@ -1,6 +1,7 @@
-<% @products.each do |product| %>
-  <div class="product-name">
-    <%= link_to product.name, edit_product_path(product) %>
-    product page
-  </div>
-<% end %>
+<h3 class="page-title text-center">Your Pending Products</h3>
+<hr class="fifty">
+<div class="container">
+<div class="row">
+    <%= render "users/product_card_pending_a" %>
+</div>
+</div>
