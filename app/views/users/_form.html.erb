@@ -16,6 +16,18 @@
   </div>
 
   <div>
+    <%= f.text_field :location, placeholder:"Location" %>
+  </div>
+
+  <div>
+    <%= f.text_field :occupation, placeholder:"Occupation" %>
+  </div>
+
+  <div>
+    <%= f.text_field :bio, placeholder:"Tell us about yourself..." %>
+  </div>
+
+  <div>
     <%= f.submit "Save" %>
     <p><small>By hitting submit you are agreeing to our <%= link_to "terms and services", terms_path  %></small></p>
   </div>

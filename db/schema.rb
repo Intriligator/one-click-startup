@@ -114,6 +114,9 @@ ActiveRecord::Schema.define(version: 20151113162509) do
     t.string   "last_name",                       null: false
     t.string   "email",                           null: false
     t.string   "password_digest",                 null: false
+    t.string   "location",                        null: false
+    t.text     "bio",                             null: false
+    t.string   "occupation",                      null: false
     t.boolean  "admin",           default: false, null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
