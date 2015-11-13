@@ -7,6 +7,8 @@ class Product < ActiveRecord::Base
   has_many :bids
   has_many :images
   has_many :views
+  has_many :assets
+  has_many :socials
 
   def self.all_active
     Product.all.select(&:active)
@@ -58,5 +60,9 @@ class Product < ActiveRecord::Base
   def expiration_to_s
     return "Expired" if finished
     "Expires in #{distance_of_time_in_words(DateTime.now, expiration)}"
+  end
+
+  def time_created_ago
+    "Submitted #{distance_of_time_in_words(created_at, DateTime.now)}"
   end
 end
