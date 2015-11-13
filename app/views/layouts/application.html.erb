@@ -11,11 +11,13 @@
 <body>
   <%= render "layouts/header" %>
 
+<%if flash[:warn] %>
   <div class="flash">
     <%= flash[:notice] %>
     <%= flash[:warn] %>
+    <a href="#" class="dismiss"><i class="fa fa-times"></i></a>
   </div>
-
+<% end %>
     <%= yield %>
 
 </body>

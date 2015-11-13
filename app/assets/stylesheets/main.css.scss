@@ -20,3 +20,18 @@ section {
  .page-title{
  	padding-top:5rem;
  }
+$red: #F05037;
+.flash {
+	position: fixed;
+	border-radius: 0 5px 5px 0;
+	padding:2.5rem;
+	top:50%;
+	transform: translateY(-50%);
+	z-index: 10000;
+	background: $red;
+	color: #fff;
+	i {
+		color:#fff;
+		margin-left:2rem;
+	}
+}
