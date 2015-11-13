@@ -4,11 +4,17 @@
     box-shadow: 0 1px 3px #C7C7C7;
     overflow: hidden;
     position: relative;
+    margin-top:2.5rem;
+    margin-bottom:2.5rem;
     a{
         text-decoration: none;
     }
+
+
 }
-  
+.repeater:nth-child(3n+4) {
+        margin-left:0;
+    }
 .product-title-container {
     max-height:22.5rem;
     width:100%;
@@ -49,6 +55,7 @@
         i {
             padding-left:1rem;
             color: #F05037;
+
         }
 
     }
@@ -57,5 +64,8 @@
         }
     i {
         font-size: 1.8rem;
+    }
+    i:hover {
+        opacity: .6;
     }
 }
