@@ -50,7 +50,7 @@ class ProductsController < ApplicationController
 
     if @product.save
       send_notification
-      redirect_to home_path
+      redirect_to pending_products_path
     else
       flash[:warn] = "Unable to update product, please try again"
       redirect_to :back
@@ -60,7 +60,7 @@ class ProductsController < ApplicationController
   def destroy
     if @product.delete
       flash[:notice] = "Product Deleted"
-      redirect_to home_path
+      redirect_to pending_user_products_path
     else
       flash[:warn] = "Unable to delete product, please try again"
       redirect_to :back
