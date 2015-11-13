@@ -11,7 +11,10 @@ admin = User.create(
   last_name: "Patterson",
   email: "info@peekskillwebdesign.com",
   password: "123",
-  admin: true
+  admin: true,
+  location: "New York",
+  occupation: "Ninja",
+  bio: "My name is Jerry, and I like to party"
 )
 
 business = Catagory.create(
