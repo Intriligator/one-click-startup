@@ -11,7 +11,7 @@
           <p class="product-tagline"><%= product.tagline %></p>
           <p class="product-user">Posted by: <%= link_to product.user.name, user_path(product.user) %></p>
           <p class="info">&nbsp;<span class="social">
-            <%= link_to new_message_path(converser_id: product.user.id), title: "Message User" do %> <i class="fa fa-comment"></i> <% end %>
+            <%= link_to edit_product_path(product), title: "Edit" do %> <i class="fa fa-pencil-square-o"></i> <% end %> 
             <%= link_to product_path(product), method: "DELETE", title: "Delete Submission" do %><i class="fa fa-times"></i> <% end %>
           </span></p>
         </div>
