@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112185741) do
+ActiveRecord::Schema.define(version: 20151113162509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assets", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "description"
+    t.string   "url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "bids", force: :cascade do |t|
     t.integer  "user_id",                            null: false
@@ -73,6 +81,9 @@ ActiveRecord::Schema.define(version: 20151112185741) do
   create_table "products", force: :cascade do |t|
     t.string   "name",                                   null: false
     t.string   "tagline",     limit: 60,                 null: false
+    t.string   "mission",                                null: false
+    t.string   "website"
+    t.text     "value_prop",                             null: false
     t.text     "description",                            null: false
     t.integer  "stock",                  default: 1,     null: false
     t.integer  "catagory_id",                            null: false
@@ -82,6 +93,13 @@ ActiveRecord::Schema.define(version: 20151112185741) do
     t.datetime "expiration",                             null: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+  end
+
+  create_table "socials", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "url",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
