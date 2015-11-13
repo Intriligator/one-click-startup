@@ -61,4 +61,8 @@ class Product < ActiveRecord::Base
     return "Expired" if finished
     "Expires in #{distance_of_time_in_words(DateTime.now, expiration)}"
   end
+
+  def time_created_ago
+    "Submitted #{distance_of_time_in_words(created_at, DateTime.now)}"
+  end
 end
