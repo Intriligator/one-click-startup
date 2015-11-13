@@ -1,10 +1,38 @@
-<% @conversation.messages.each_with_index do |message, index| %>
-  <p>
-    <%= "#{message.user.name}: #{message.content}" %>
-    <% if message.display_read(index, current_user) %>
-      (Read)
-    <% end %>
-  </p>
-<% end %>
 
+<header class="messages-header">
+	<div class="container">	
+		<div class="row">
+			<div class="seven offset-by-one columns">
+				<h1>Your Conversation With </h1>
+				<h3><%= link_to @conversation.other_user(current_user).name, user_path(@conversation.other_user(current_user))%></h3>
+			</div>
+			<div class="three columns text-center">
+				<img class="profile" src="#">
+			</div>
+		</div>
+	</div>	
+	</header>
+	
+	<section>
+	<div class="container">	
+		<div class="row">
+			<div class="ten offset-by-one columns">
+			<% @conversation.messages.each_with_index do |message, index| %>
+			<article class="message-bar">
+				<p>
+					<%= link_to message.user.name, user_path(message.user) %>
+				  <%= message.content %>
+				  <% if message.display_read(index, current_user) %>
+				    (Read)
+				  <% end %>
+				</p>
+			</article>
+				<% end %>
+		</div>
+	</div>
+</div>	
+</section>
 <%= render partial: "message_form", locals: { message: @message, converser: @conversation.other_user(current_user) } %>
+
+
+	
