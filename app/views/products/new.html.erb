@@ -1,4 +1,4 @@
-<section>
+<section class="listing-intro">
 <div class="container">
   <div class="row">
     <div class="eight columns create-listing">
@@ -19,6 +19,14 @@
   </div>
 </div>
 </section>
-<div class="ten offset-by-one columns">
-  <%= render partial: "form", locals: { product: @product } %>
-</div>
+
+<section class="new-listing">
+  <div class="container">
+    <div class="row">
+      <div class="eight columns">
+        <h3>Create your listing</h3>
+          <%= render partial: "form", locals: { product: @product } %>
+      </div>
+    </div>
+  </div>
+</section>

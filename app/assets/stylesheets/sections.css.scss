@@ -40,6 +40,26 @@
 }
 //Style Sections here
 
+.listing-intro {
+	padding-top: 6rem;
+}
+.new-listing { 
+
+ input {
+ 	width: 100%;
+ 	margin-bottom: 3rem;
+
+	&:focus {
+		background: #fff;
+		border: 1px solid #33C3F0;
+	 }
+  }
+  textarea,
+  select {
+  	width: 100%;
+  	margin-bottom: 3rem;
+  }
+}
 
 
 
