@@ -4,11 +4,10 @@
 		<div class="row">
 			<div class="three offset-by-one columns text-center">
 				<img class="profile" src="#">
-				<p><%=current_user.name %></p>
 			</div>
 			<div class="eight columns">
 				<h1>Messages Center</h1>
-				<span class="user-name"><%=current_user.name %></span>
+				<span class="user-name"><%= link_to current_user.name, user_path(current_user) %></span>
 				<h4>View your messages from other One <i>Click</i> users</h4>
 			</div>
 		</div>

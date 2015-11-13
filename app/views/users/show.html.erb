@@ -1,7 +1,33 @@
-hey now<%= @user.name %>
 
-<% unless @user == current_user %>
-  <div>
-    <%= link_to "Send Message", new_message_path(converser_id: @user.id) %>
-  </div>
-<% end %>
+<header class="messages-header">
+	<div class="container">	
+		<div class="row">
+			<div class="twelve columns text-center">
+				<img class="profile" src="#">
+			</div>
+		</div>
+			<div class="twelve columns text-center">
+				<h1><%= @user.name %></h1>
+				<p><%= @user.location %></p>
+				<h4><%= @user.occupation %></h4>
+				<p class="bio">
+				  <%= @user.bio %>
+					<% unless @user == current_user %>
+					<div class="u-pull-right">
+					  <%= link_to "Send #{@user.first_name} a Message", new_message_path(converser_id: @user.id) %>
+					</div>
+				</p>
+			</div>
+		</div>
+	</div>	
+		<% end %>
+</header>
+<section>
+	<div class="container">	
+		<div class="row">
+			<div class="twelve columns">
+			<h2>Sponsored Products</h2>
+			</div>
+		</div>
+	</div>
+</section>
