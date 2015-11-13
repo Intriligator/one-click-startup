@@ -8,9 +8,10 @@
 		</div>
 			<div class="twelve columns text-center">
 				<h1><%= @user.name %></h1>
-				<p>New York, New York</p>
-				<h4>Occupation of negative space</h4>
-				<p class="bio">This is my bio...Chris (with adorable child in tow) greeted us in front of the building and speedily showed us around. There's a great, smart, comfortable, inventive vibe at their place. Though we only spent a night there, we slept like babies on their super-comfy bed and had a swell time.
+				<p><%= @user.location %></p>
+				<h4><%= @user.occupation %></h4>
+				<p class="bio">
+				  <%= @user.bio %>
 					<% unless @user == current_user %>
 					<div class="u-pull-right">
 					  <%= link_to "Send #{@user.first_name} a Message", new_message_path(converser_id: @user.id) %>
