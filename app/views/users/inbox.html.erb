@@ -1,5 +1,30 @@
-<% current_user.all_conversations.each do |conversation| %>
-  <p>
-    <%= link_to conversation.other_user(current_user).name, conversation_path(conversation) %>
-  </p>
-<% end %>
+
+<header class="messages-header">
+	<div class="container">	
+		<div class="row">
+			<div class="three offset-by-one columns text-center">
+				<img class="profile" src="#">
+				<p><%=current_user.name %></p>
+			</div>
+			<div class="eight columns">
+				<h1>Messages Center</h1>
+				<span class="user-name"><%=current_user.name %></span>
+				<h4>View your messages from other One <i>Click</i> users</h4>
+			</div>
+		</div>
+	</div>	
+</header>
+<section>
+	<div class="container">	
+		<div class="row">
+			<div class="ten offset-by-one columns">
+					<% current_user.all_conversations.each do |conversation| %>
+				<article class="message-bar">
+				 <p>
+   				 <%= link_to conversation.other_user(current_user).name, conversation_path(conversation) %>
+  				</p>
+				</article>
+					<% end %>
+		</div>
+	</div>	
+</section>
