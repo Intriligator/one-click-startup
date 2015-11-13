@@ -9,6 +9,7 @@ class Product < ActiveRecord::Base
   has_many :views
   has_many :assets
   has_many :socials
+  has_many :likes
 
   def self.all_active
     Product.all.select(&:active)
@@ -64,5 +65,9 @@ class Product < ActiveRecord::Base
 
   def time_created_ago
     "Submitted #{distance_of_time_in_words(created_at, DateTime.now)}"
+  end
+
+  def liked_by?(user)
+    likes.find_by(user: user)
   end
 end
