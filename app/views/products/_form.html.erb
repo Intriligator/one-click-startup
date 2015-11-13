@@ -1,47 +1,55 @@
 <%= form_for product do |f| %>
-  <div>
-    <%= f.label :name  %>
-    <%= f.text_field :name %>
-  </div>
 
-  <div>
-    <%= f.label :website  %>
-    <%= f.text_field :website %>
-  </div>
+<div>
+  <%= f.label :name, 'Business Name'  %>
+  <p><small>Enter the name of your sponsored business</small></p>
+  <%= f.text_field :name %>
+</div>
 
-  <div>
-    <%= f.label :tagline  %>
-    <%= f.text_field :tagline %>
-  </div>
+<div>
+  <%= f.label :website, 'Business Website'   %>
+  <p><small>Enter the URL of your sponsored business website</small></p>
+  <%= f.text_field :website %>
+</div>
+<div>
+  <%= f.label :tagline, 'Business Tagline' %>
+  <p><small>Enter a short tagline for your sponsored business</small></p>
+  <%= f.text_field :tagline %>
+</div>
+<div>
+  <%= f.label :mission, 'Business Mission' %>
+  <p><small>Enter mission statement for your sponsored business</small></p>
+  <%= f.text_area :mission %>
+</div>
 
-  <div>
-    <%= f.label :mission  %>
-    <%= f.text_area :mission %>
-  </div>
+<div>
+  <%= f.label :value_prop, 'Value Proposition' %>
+  <p><small>Enter the value statement for your sponsored business</small></p>
+  <%= f.text_area :value_prop %>
+</div>
 
-  <div>
-    <%= f.label :value_prop  %>
-    <%= f.text_area :value_prop %>
-  </div>
+<div>
+  <%= f.label :description, 'Business Description'  %>
+  <p><small>Enter the value statement for your sponsored business</small></p>
+  <%= f.text_area :description %>
+</div>
 
-  <div>
-    <%= f.label :description  %>
-    <%= f.text_area :description %>
-  </div>
+<div>
+  <%= f.label :catagory_id %>
+  <p><small>Select the proper category for your sponsored business</small></p>
+  <%= f.collection_select(:catagory_id, Catagory.all, :id, :name, prompt: true) %>
+</div>
 
-  <div>
-    <%= f.label :catagory_id %>
-    <%= f.collection_select(:catagory_id, Catagory.all, :id, :name, prompt: true) %>
-  </div>
+<%= label_tag :image, "Upload an Image" %>
+<p><small>Upload and Image or logo to represent your sponsored business</small></p>
+<div>
+  <%= f.file_field :file, multiple: true  %>
+</div>
 
-  <div>
-    <%= f.file_field :file, multiple: true  %>
-  </div>
+<div>
+  <%= f.submit "Submit Your Listing" %>
+</div>
 
-  <div>
-    <%= f.submit "Save" %>
-  </div>
-
-  <%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :user_id, value: current_user.id %>
 
 <% end %>
