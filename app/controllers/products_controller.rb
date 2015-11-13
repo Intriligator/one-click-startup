@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     if @product.save
       unless params[:product][:file]
         #placeholder image - will erase this block
-          @image = Image.create(url: "http://www.connexionsweb.com/wp-content/uploads/2015/03/businessLogo.png", product_id: @product.id)
+          @image = Image.create(url: "http://www.connexionsweb.com/wp-content/uploads/2015/03/businessLogo.png", imageable_id: @product.id, imageable_type: "Product")
         #----
       else
         params[:product][:file].each do |file|
@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
 
           obj.upload_file(file.tempfile, acl:'public-read')
 
-          @image = Image.new(url: obj.public_url, product_id: @product.id)
+          @image = Image.new(url: obj.public_url, imageable_id: @product.id, imageable_type: "Product")
 
           unless @image.save
             flash[:warn] = "There was a problem uploading your image(s), please try again"

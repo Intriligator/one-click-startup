@@ -57,6 +57,7 @@ end
 
   image = Image.create(
     url: Faker::Company.logo,
-    product_id: product.id
+    imageable_id: product.id,
+    imageable_type: "Product"
   )
 end

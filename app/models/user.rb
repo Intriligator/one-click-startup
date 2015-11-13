@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :notifications
   has_many :views
   has_many :likes
+  has_one :images, as: :imageable
 
   has_many :conversations
   has_many :conversers, through: :conversations
