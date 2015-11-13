@@ -1,10 +1,6 @@
 html, body{
     height:100%;
 }
-input[type="text"]:focus, input[type="password"]:focus {
-	border:none;
-	background-color: rgba(0, 0, 0, 1);
-}
 .landing-login{
 	height:100%
 }
@@ -40,6 +36,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 	margin:1rem;
 	width:400px;
 	border: none;
+	width:80%;
 	&:hover {
 		opacity: 0.7;
 	}
