@@ -27,7 +27,7 @@
 					<p> Listed in: <b><%= @product.catagory_id %></b></p>
       </div>
     </div>
-
+<%= link_to "message user", new_message_path(converser_id: @product.user.id), title: "Message User" %>
 <div class="highest-bid">
   <p>Highest Bid: $<%= sprintf('%.2f', @product.highest_bid_amount) %></p>
 </div>

@@ -1,4 +1,5 @@
 <%= form_for message do |f| %>
+<section class="message-reply">
   <div>
     <%= f.label :content  %>
     <%= f.text_area :content %>
@@ -11,3 +12,4 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :converser_id, value: converser.id %>
 <% end %>
+</section>
