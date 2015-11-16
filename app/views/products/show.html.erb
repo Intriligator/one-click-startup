@@ -1,18 +1,32 @@
-<div class="product-images">
-  <% @product.images.each do |image| %>
-    <div class="product-image">
-      <%= image_tag image.url, width: 200 %>
+
+<section class="product-single">
+  <div class="container">	
+		<div class="row">
+			<div class="twelve columns">
+        <header class="user-product-single">
+          <img class="single-profile" src="">
+			    <h3><%= @product.name %></h3>
+          <p>by <%= link_to @product.user.name, user_path(@product.user)%>
+          &nbsp; <small>Meta data</small></p>
+        </header>
+      </div>
     </div>
-  <% end %>
-</div>
-
-<div class="product-name">
-  <%= @product.name %>
-</div>
-
-<div class="product-decription">
-  <%= @product.description %>
-</div>
+    <div class="row">
+      <div class="twelve columns">
+        <% @product.images.each do |image| %>
+          <div class="single-image">
+            <%= image_tag image.url%>
+          </div>
+        <% end %>
+     
+					<p><a href="<%= @product.website %>">Website</a></p>
+					<p><%= @product.tagline %></p>
+					<p><%= @product.mission %></p>
+					<p><%= @product.value_prop %></p>
+					<p> <%= @product.description %></p>
+					<p> Listed in: <b><%= @product.catagory_id %></b></p>
+      </div>
+    </div>
 
 <div class="highest-bid">
   <p>Highest Bid: $<%= sprintf('%.2f', @product.highest_bid_amount) %></p>
@@ -21,3 +35,14 @@
 <div class="bid-link">
   <%= link_to "Bid", new_bid_path(product_id: @product.id) %>
 </div>
+
+</section>
+<section>
+	<div class="container">	
+		<div class="row">
+			<div class="twelve columns">
+			<h2>Sponsored Products</h2>
+			</div>
+		</div>
+	</div>
+</section>
