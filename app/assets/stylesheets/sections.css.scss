@@ -38,6 +38,18 @@
 	max-width: 65%;
 	margin-left: 17.5%;
 }
+
+.user-product-single {
+
+	img {
+		float: left;
+		height: 100px;
+		width: 100px;
+		border-radius: 100%;
+		margin-right: 3rem;
+	}
+}
+
 //Style Sections here
 
 .listing-intro {
@@ -61,8 +73,13 @@
   }
 }
 
+.product-single {
+	padding-top: 6rem;
+}
 
-
+.single-image {
+	margin: 4rem 0;
+}
 //Style Article sections here
 
 .message-bar {
